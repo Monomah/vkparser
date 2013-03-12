@@ -1,7 +1,7 @@
-require 'logged_in_constraint'
+#require 'logged_in_constraint'
 
 Vkparser::Application.routes.draw do
-  get 'callback'  => 'sessions#callback'
+  get 'callback' => 'sessions#callback'
   delete 'logout' => 'sessions#destroy'
   
   root to: 'main#index', constraints: LoggedInConstraint.new
