@@ -1,9 +1,12 @@
 ﻿# encoding: utf-8
 class SessionsController < ApplicationController
   def new
-    srand
-    session[:state] ||= Digest::MD5.hexdigest(rand.to_s)
-	@vk_url = VkontakteApi.authorization_url(scope: [:friends, :groups, :offline, :notify], state: session[:state])
+    #srand
+    #session[:state] ||= Digest::MD5.hexdigest(rand.to_s)
+	#@vk_url = VkontakteApi.authorization_url(scope: [:friends, :groups, :offline, :notify], state: session[:state])
+	
+	session[:state] = Digest::MD5.hexdigest(rand.to_s)
+	redirect_to VkontakteApi.authorization_url(scope: [:notify, :friends, :photos], state: session[:state])
 	
   end
   
