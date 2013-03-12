@@ -1,4 +1,4 @@
-#require 'logged_in_constraint'
+require 'logged_in_constraint'
 
 Vkparser::Application.routes.draw do
   get 'callback' => 'sessions#callback'
